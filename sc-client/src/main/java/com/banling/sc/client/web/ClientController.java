@@ -9,6 +9,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,8 @@ import com.banling.sc.module.User;
 @RestController
 @RequestMapping("/client")
 public class ClientController {
+	
+	private final Logger logger=Logger.getLogger(this.getClass());
 
 	@Autowired
 	private FeignClientService feignClientService;
@@ -31,6 +34,7 @@ public class ClientController {
 	 */
 	@GetMapping("/test/{msg}")
 	public String test(@PathVariable String msg){
+		logger.info("test");
 		return feignClientService.getMsg(msg);
 	}
 	
@@ -39,6 +43,7 @@ public class ClientController {
 	 */
 	@GetMapping("/download/{fileid}")
 	public void download(@PathVariable String fileid,HttpServletResponse response){
+		logger.info("download");
 		try {
 			OutputStream out=new BufferedOutputStream(response.getOutputStream());
 			
@@ -64,11 +69,13 @@ public class ClientController {
 	
 	@GetMapping("/norestapi")
 	public String noRestApi(){
+		logger.info("norestapi");
 		return feignClientService.noRestApi();
 	}
 	
 	@GetMapping("/userList/{count}")
 	public List<User> getUserList(@PathVariable Integer count){
+		logger.info("getUserList");
 		return feignClientService.getUserList(count);
 	}
 }

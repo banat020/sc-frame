@@ -2,6 +2,9 @@ package com.banling.sc.gateway.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import javax.servlet.http.HttpServletRequest;
+
+import org.apache.log4j.Logger;
+
 import com.netflix.zuul.context.RequestContext;
 import com.banling.sc.gateway.filter.ICheckToken;
 
@@ -11,6 +14,8 @@ import com.banling.sc.gateway.filter.ICheckToken;
  */
 public class UserFilter extends ZuulFilter {
 	
+	private final Logger logger=Logger.getLogger(this.getClass());
+	
 	private final String FIlTER_TYPE="pre";
 	
 	private ICheckToken checkToken=new ICheckToken(){
@@ -18,6 +23,7 @@ public class UserFilter extends ZuulFilter {
 		@Override
 		public boolean validateToken(String Token) {
 			// TODO Auto-generated method stub
+			logger.info("check token ... ");
 			if(Token==null||Token.trim().length()<3){
 				return false;
 			}else{

@@ -39,6 +39,7 @@ public class HelloController {
     @ApiImplicitParam(name = "msg", value = "入参", required = true, dataType = "String",paramType = "query")
 	@RequestMapping(value="/getMsg",method=RequestMethod.GET)
 	public String getMsg(String msg){
+		logger.info("getMsg");
 		return "What msg do get from client 8080 :"+msg;
 	}
 	
@@ -49,6 +50,7 @@ public class HelloController {
 	})
 	@RequestMapping(value="/getMoreMsgs",method=RequestMethod.GET)
 	public String getMoreMsgs(String msg1,String msg2){
+		logger.info("getMoreMsgs");
 		return msg1+"   ...   "+msg2;
 	}
 	
@@ -57,6 +59,7 @@ public class HelloController {
 	@ApiImplicitParam(name = "count", value = "返回的记录数量", required = true, dataType = "Integer",paramType = "query")
 	@GetMapping(value="getUsers",produces = "application/json;charset=UTF-8")
 	public List<User> getUsers(Integer count){
+		logger.info("getUsers");
 		List<User> list=null;
 		if(count!=null&&count.intValue()>0){
 			list=new ArrayList<User>();
@@ -72,6 +75,7 @@ public class HelloController {
 	@ApiImplicitParam(name = "count", value = "返回的记录数量", required = true, dataType = "Integer",paramType = "path")
 	@GetMapping("userList/{count}")
 	public List<User> userList(@PathVariable Integer count){
+		logger.info("userList");
 		List<User> list=null;
 		if(count!=null&&count.intValue()>0){
 			list=new ArrayList<User>();
@@ -86,6 +90,7 @@ public class HelloController {
 	@ApiImplicitParam(name = "fileid", value = "文件ID", required = true, dataType = "String",paramType = "path")
 	@GetMapping("download/{fileid}")
 	public void fileDownLoad(@PathVariable String fileid,HttpServletResponse response){
+		logger.info("download");
         File file=new File("D:\\wubi.jpg");  
         String filename = file.getName();
         InputStream inputStream=null;

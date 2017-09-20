@@ -40,6 +40,7 @@ public class WelcomeController {
  
 	@RequestMapping(value="/test",method=RequestMethod.POST)
 	public String test(Map<String, Object> model) {
+		logger.info("test");
 		throw new RuntimeException("test");
 	}
 
