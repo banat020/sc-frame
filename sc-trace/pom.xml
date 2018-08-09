@@ -33,6 +33,12 @@
 	</dependencyManagement>
 	
 	<dependencies>
+		<!-- sleuth配置 -->
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-starter-sleuth</artifactId>
+	    </dependency>
+	    
 		 <!--使用@EnableZipkinServer注解方式只需要依赖如下两个包-->
 		 <dependency>
 			  <groupId>io.zipkin.java</groupId>
@@ -44,7 +50,7 @@
 		 	  <scope>runtime</scope>
 		 </dependency>
 		 <!--保存到数据库需要如下依赖-->
-		 <!-- 
+
 		 <dependency>
 		  <groupId>io.zipkin.java</groupId>
 		  <artifactId>zipkin-autoconfigure-storage-mysql</artifactId>
@@ -57,7 +63,7 @@
 		  <groupId>org.springframework.boot</groupId>
 		  <artifactId>spring-boot-starter-jdbc</artifactId>
 		 </dependency>
-		  -->
+		 
 	</dependencies>
 
 	<build>
