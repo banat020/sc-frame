@@ -10,6 +10,7 @@
 	<timestamp key="bydate" datePattern="yyyy-MM-dd" />
 
 	<!-- 定义控制台打印 -->
+	<!--继承root的配置 -->
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
 			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}  %-5level %logger -- %msg%n</pattern>
@@ -19,12 +20,12 @@
 	<!-- 定义日志文件输出 -->
 	<appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<filter class="ch.qos.logback.classic.filter.LevelFilter">
-			<level>INFO</level>
+			<level>ERROR</level>
 			<onMatch>ACCEPT</onMatch>
-			<onMismatch>ACCEPT</onMismatch>
+			<onMismatch>DENY</onMismatch>
 		</filter>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${log_dir}/%d{yyyy-MM-dd}/${appName}.info</fileNamePattern>
+			<fileNamePattern>${log_dir}/%d{yyyy-MM-dd}/${appName}.error</fileNamePattern>
 			<maxHistory>${maxHistory}</maxHistory>
 		</rollingPolicy>
 		<encoder>
