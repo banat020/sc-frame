@@ -19,6 +19,10 @@ import com.banling.sc.module.User;
 
 import java.util.List;
 
+/**
+ * 不使用feign，而是用RestTemplate
+ *
+ */
 @RestController
 public class TestController {
 	

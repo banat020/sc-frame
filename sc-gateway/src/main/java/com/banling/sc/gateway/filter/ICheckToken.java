@@ -1,6 +1,6 @@
 package com.banling.sc.gateway.filter;
 
-/**检查Token是否合法
+/**定义业务接口：检查Token是否合法
  * @author Ban
  *
  */

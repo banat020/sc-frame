@@ -19,6 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.banling.sc.client.service.FeignClientService;
 import com.banling.sc.module.User;
 
+/**
+ * 使用feign为作客户端工具
+ *
+ */
 @RestController
 @RequestMapping("/client")
 public class ClientController {
