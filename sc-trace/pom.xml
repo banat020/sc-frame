@@ -56,11 +56,7 @@
 		 	  <optional>true</optional>
 		 </dependency>
 		 
-		 <dependency>
-            <groupId>io.zipkin.java</groupId>
-            <artifactId>zipkin</artifactId>
-            <version>1.24.0</version>
-        </dependency>
+		 
 
         <!--保存到ES需要如下依赖-->
         <!-- 添加 spring-data-elasticsearch的依赖 -->
@@ -70,7 +66,11 @@
             <version>1.24.0</version>
             <optional>true</optional>
         </dependency>
-        
+		<dependency>
+            <groupId>io.zipkin.java</groupId>
+            <artifactId>zipkin</artifactId>
+            <version>1.24.0</version>
+        </dependency>        
         <dependency>
 		    <groupId>com.squareup.okhttp3</groupId>
 		    <artifactId>okhttp</artifactId>
