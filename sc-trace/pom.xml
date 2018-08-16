@@ -62,7 +62,7 @@
             <version>1.24.0</version>
         </dependency>
 
-        <!--保存到数据库需要如下依赖-->
+        <!--保存到ES需要如下依赖-->
         <!-- 添加 spring-data-elasticsearch的依赖 -->
         <dependency>
             <groupId>io.zipkin.java</groupId>
@@ -76,8 +76,13 @@
 		    <artifactId>okhttp</artifactId>
 		    <version>3.9.1</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.elasticsearch</groupId>
+		    <artifactId>elasticsearch</artifactId>
+		    <version>5.6.10</version>
+		</dependency>
 		 
-		 <!--trace保存到数据库需要如下依赖-->
+		 <!--trace保存到MySQL数据库需要如下依赖-->
 		 <!-- 
 		 <dependency>
 		  <groupId>io.zipkin.java</groupId>
@@ -91,57 +96,6 @@
 		  <groupId>org.springframework.boot</groupId>
 		  <artifactId>spring-boot-starter-jdbc</artifactId>
 		 </dependency>
-		 -->
-		 
-		 <!-- trace保存到ES需要的依赖 -->
-		 <!-- 
-		 <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-elasticsearch</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.data</groupId>
-    				<artifactId>spring-data-elasticsearch</artifactId>
-				</exclusion>
-				
-			</exclusions>
-		</dependency>
-		 -->
-		 
-		 <!-- 
-		<dependency>
-		    <groupId>io.zipkin.java</groupId>
-		    <artifactId>zipkin-autoconfigure-storage-elasticsearch-http</artifactId>
-		    <version>2.7.5</version>
-		    <optional>true</optional>
-		</dependency>
-		  -->
-		 
-		<!-- 
-		<dependency>
-		    <groupId>org.springframework.data</groupId>
-		    <artifactId>spring-data-elasticsearch</artifactId>
-		    <version>2.0.11.RELEASE</version>
-		    <exclusions>
-		    	<exclusion>
-					<groupId>org.elasticsearch</groupId>
-			        <artifactId>elasticsearch</artifactId>
-				</exclusion>
-		    </exclusions>
-		</dependency>
-		 -->
-		<dependency>
-		    <groupId>org.elasticsearch</groupId>
-		    <artifactId>elasticsearch</artifactId>
-		    <version>5.6.10</version>
-		</dependency>
-		
-		<!-- 
-		 <dependency>
-		    <groupId>io.zipkin.java</groupId>
-		    <artifactId>zipkin-autoconfigure-storage-elasticsearch</artifactId>
-		    <version>2.10.4</version>
-		</dependency>
 		 -->
 		 
 	</dependencies>
