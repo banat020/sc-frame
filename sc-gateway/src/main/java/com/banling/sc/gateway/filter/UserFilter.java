@@ -29,7 +29,6 @@ public class UserFilter extends ZuulFilter {
 			}else{
 				return true;
 			}
-			
 		}
 		
 	};
@@ -39,8 +38,9 @@ public class UserFilter extends ZuulFilter {
 		// TODO Auto-generated method stub
 		RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
-        String userToken=request.getParameter("user-token");
-        System.out.println(userToken);
+        //header与body，任何一个地方设置有效token都可。
+        String userToken=request.getHeader("user-token")!=null?request.getHeader("user-token"):request.getParameter("user-token");
+        logger.info("get the token is:"+userToken);
         //todo, 验证Token
         if(checkToken.validateToken(userToken)){
         	ctx.setSendZuulResponse(true);// 对该请求进行路由  
